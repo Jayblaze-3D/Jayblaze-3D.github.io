@@ -1,56 +1,255 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JOHN ARUMAGBERE PERSONAL PAGE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Arumagbere | Personal Portfolio</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6fa;
+    :root {
+      --bg-color: #f7f9fc;
+      --text-color: #333;
+      --card-bg: #fff;
+      --accent-color: #004aad;
+      --link-hover: #ffd700;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eaeaea;
+      --card-bg: #1e1e1e;
+      --accent-color: #ffd700;
+      --link-hover: #004aad;
+    }
+
+    /* ===== BASIC RESET ===== */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    /* ===== HEADER & NAV ===== */
+    header {
+      background-color: var(--accent-color);
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.4s;
+    }
+
+    .nav-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px 20px;
+    }
+
+    .nav-container h1 {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    /* ===== THEME TOGGLE BUTTON ===== */
+    .theme-toggle {
+      background: none;
+      border: 2px solid white;
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    /* ===== MAIN SECTIONS ===== */
+    section {
+      max-width: 900px;
+      margin: 100px auto 60px;
+      padding: 20px;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.4s;
+    }
+
+    section h2 {
+      color: var(--accent-color);
       text-align: center;
-      color: #222;
+      margin-bottom: 15px;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
+
+    section p {
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 15px;
     }
-    p {
-      margin: 6px 0;
-      color: #555;
-    }
+
     img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #2c3e50;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
     }
-    .card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--accent-color);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 40px;
+      transition: background-color 0.4s;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 22px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--link-hover);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 600px) {
+      .nav-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        margin-top: 8px;
+      }
     }
   </style>
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <div class="card">
-    <!-- Replace 'myphoto.jpg' with your actual file name -->
-    <img src="myphoto.jpg" alt="John Arumagbere Photo">
-    <h1>JOHN ARUMAGBERE</h1>
-    <p>This is my personal page.</p>
-    <p>Here you can find updates and information about my work.</p>
-  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="nav-container">
+      <h1>John Arumagbere</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HOME SECTION ===== -->
+  <section id="home">
+    <img src="your-image.jpg" alt="John Arumagbere Photo">
+    <p style="text-align:center;">
+      Welcome to my page, my name is <strong>John Arumagbere</strong>.<br>
+      I'm glad to have you here! Feel free to explore and enjoy the space — 
+      check out our services and contact us for a one-on-one discussion 
+      for whatever you need us for.
+    </p>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about">
+    <h2>My Works</h2>
+
+    <p><strong>Practical Civil Engineer:</strong> For construction of any structural design, supervision and consultation.</p>
+
+    <p><strong>Fish Farmer:</strong> Professional fish hatchery, tutor, breeding, fish marketing, sales of all sizes of catfish, and consultation.</p>
+
+    <p><strong>Baker:</strong> Active for orders for anything bake-able like cakes, pancakes, cupcakes, buns, egg rolls, fish and meat rolls, pies, pizza, shawarma, doughnuts, puff-puffs, etc., and also a tutor.</p>
+  </section>
+
+  <!-- ===== PRIVACY POLICY SECTION ===== -->
+  <section id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>
+      Your privacy is important to us. All personal information collected is handled 
+      with utmost confidentiality and will never be shared with third parties 
+      without your consent. We ensure secure communication and respect your right to data privacy.
+    </p>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+      For any of the above services, reach out through the platforms below:
+    </p>
+
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 John Arumagbere | All Rights Reserved</p>
+  </footer>
+
+  <!-- ===== SCRIPT: DARK/LIGHT MODE TOGGLE ===== -->
+  <script>
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const icon = toggleBtn.querySelector("i");
+      if (body.classList.contains("dark")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    });
+  </script>
+
 </body>
 </html>
